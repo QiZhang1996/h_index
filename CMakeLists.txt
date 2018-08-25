@@ -3,12 +3,5 @@ project(myhindex)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES
-        Graph.cpp
-        Graph.h
-        Hindex.cpp
-        Hindex.h
-        main.cpp
-        tool.h)
-
+set(SOURCE_FILES main.cpp Hindex.cpp Hindex.h tool.h)
 add_executable(myhindex ${SOURCE_FILES})

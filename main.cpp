@@ -14,12 +14,6 @@ int main()
 
     hindex.buildHindex();
 
-    cout << "h = " << hindex.gethindex() << endl;
-    hindex.getB();
-    hindex.getH();
-    hindex.getC();
-    cout << endl;
-
     hindex2.insertVertex(1, 2);
     hindex2.insertVertex(2, 4);
     hindex2.insertVertex(3, 4);

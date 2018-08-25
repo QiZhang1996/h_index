@@ -282,7 +282,12 @@ int Hindex::insertEdge(int x, int y){
 
     //add EdgeMap
     //add neighbor
+    graph[x].emplace_back(y);
+    graph[y].emplace_back(x);
+    EdgeClass edge(x, y);
+    EdgeMap[edge] = 1;
 
+    //change deg
     int dx = degree[x] + 1;
     int dy = degree[y] + 1;
     removeVertex(x);
@@ -296,6 +301,35 @@ int Hindex::removeEdge(int x, int y){
 
     //remove EdgeMap
     //remove neighbor
+
+
+
+    vector<int>::iterator it;
+
+    //cout << "vertex" << x<< ": ";
+
+    for( it = graph[x].begin(); it != graph[x].end(); it++){
+
+        if(*it == y){
+
+            graph[x].erase(it);
+            break;
+        }
+    }
+    for( it = graph[y].begin(); it != graph[y].end(); it++){
+
+        if(*it == x){
+
+            graph[y].erase(it);
+            break;
+        }
+    }
+
+    EdgeClass edge(x, y);
+    EdgeMap.erase(edge);
+
+
+    //change deg
 
     int dx = degree[x] - 1;
     int dy = degree[y] - 1;
